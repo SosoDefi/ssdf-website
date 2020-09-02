@@ -10,7 +10,7 @@ export default function Banner() {
       <style jsx>{`
         #banner {
           padding: 12em 0 10em 0;
-          background-image: url('/images/banner.jpg');
+          background-image: url('/images/banner2.jpg');
           background-size: cover;
           background-position: top;
           background-attachment: fixed;
