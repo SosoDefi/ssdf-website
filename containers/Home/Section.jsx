@@ -58,29 +58,27 @@ const Section = {
           </header>
           <div className="flex flex-4">
             <div className="box person">
-              <div className="image round">
-                <img src="/images/pic03.jpg" alt="Person 1" />
-              </div>
+              <a className="icon fa-cc-diners-club"></a>
               <h3>存款挖矿</h3>
             </div>
             <div className="box person">
-              <div className="image round">
-                <img src="/images/pic04.jpg" alt="Person 2" />
-              </div>
+              <a className="icon fa-legal"></a>
               <h3>闪电借贷</h3>
             </div>
             <div className="box person">
-              <div className="image round">
-                <img src="/images/pic05.jpg" alt="Person 3" />
-              </div>
+              <a className="icon fa-wrench"></a>
               <h3>跨链流动挖矿</h3>
             </div>
             <div className="box person">
-              <div className="image round">
-                <img src="/images/pic06.jpg" alt="Person 4" />
-              </div>
+              <a className="icon fa-key"></a>
               <h3>预言机期权</h3>
             </div>
+            <style jsx>{`
+              a {
+                color: white;
+                font-size: 4em;
+              }
+            `}</style>
           </div>
         </div>
       </section>
