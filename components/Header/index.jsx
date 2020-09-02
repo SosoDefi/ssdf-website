@@ -1,14 +1,19 @@
 import React from 'react';
+import Link from 'next/link';
 
 import { useViewport } from '../../shared/providers/Viewport';
 
-const Header = () => {
+const Header = ({ subpage = false }) => {
   const { width } = useViewport();
 
   const config = [
     {
       href: '/',
       child: 'Home',
+    },
+    {
+      href: '/ssdf',
+      child: 'SSDF',
     },
     {
       href: '/',
@@ -37,16 +42,29 @@ const Header = () => {
 
   return (
     <>
-      <header id="header">
+      <header
+        id="header"
+        style={
+          subpage
+            ? {
+                background: '#5385c1',
+                top: 0,
+                height: 44,
+                lineHeight: '44px',
+                position: 'fixed',
+              }
+            : undefined
+        }
+      >
         <div className="inner">
           <a href="index.html" className="logo">
             SosoDefi
           </a>
           <nav id="nav">
             {config.map(({ href, child }, index) => (
-              <a key={index} href={href}>
-                {child}
-              </a>
+              <Link key={index} href={href}>
+                <a>{child}</a>
+              </Link>
             ))}
           </nav>
           <a className="navPanelToggle" onClick={() => setVisible(true)}>
