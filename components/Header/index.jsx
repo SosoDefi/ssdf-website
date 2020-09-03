@@ -15,12 +15,15 @@ const Header = ({ subpage = false }) => {
       child: 'SSDF',
     },
     {
-      href: '/',
+      href:
+        'https://github.com/SosoDefi/ssdf-doc/blob/master/whitepaper/SosoDefi-Whitepaper.pdf',
       child: 'whitepaper',
+      target: '_blank',
     },
     {
-      href: '/',
+      href: 'https://github.com/SosoDefi',
       child: 'Github',
+      target: '_blank',
     },
   ];
 
@@ -63,9 +66,9 @@ const Header = ({ subpage = false }) => {
             SosoDefi
           </a>
           <nav id="nav">
-            {config.map(({ href, child }, index) => (
+            {config.map(({ href, child, target }, index) => (
               <Link key={index} href={href}>
-                <a>{child}</a>
+                <a target={target}>{child}</a>
               </Link>
             ))}
             <a>
