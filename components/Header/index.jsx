@@ -1,11 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
+import Dropdown from 'react-dropdown';
 
-import { useViewport } from '../../shared/providers/Viewport';
+import { useLanguage } from '../../shared/providers/Language';
 
 const Header = ({ subpage = false }) => {
-  const { width } = useViewport();
-
   const config = [
     {
       href: '/',
@@ -17,7 +16,7 @@ const Header = ({ subpage = false }) => {
     },
     {
       href: '/',
-      child: 'Whitepaper',
+      child: 'whitepaper',
     },
     {
       href: '/',
@@ -25,19 +24,22 @@ const Header = ({ subpage = false }) => {
     },
   ];
 
-  if (width <= 980) {
-  }
-
+  const { supportLang, lang, toogleLang } = useLanguage();
   const [visible, setVisible] = React.useState(false);
 
+  const options = Object.keys(supportLang).map((key) => ({
+    value: key,
+    label: supportLang[key].name,
+  }));
+
   React.useEffect(() => {
-    const handleClick = () => {
+    const handleClick = (e) => {
       setVisible(false);
     };
 
-    document.body.addEventListener('click', handleClick);
+    document.addEventListener('click', handleClick, false);
 
-    return () => document.body.removeEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick, false);
   }, []);
 
   return (
@@ -66,20 +68,61 @@ const Header = ({ subpage = false }) => {
                 <a>{child}</a>
               </Link>
             ))}
+            <a>
+              <Dropdown
+                value={lang}
+                options={options}
+                onChange={(item) => toogleLang(item.value)}
+              />
+            </a>
           </nav>
-          <a className="navPanelToggle" onClick={() => setVisible(true)}>
+          <a
+            className="navPanelToggle"
+            onClick={(e) => {
+              e.nativeEvent.stopImmediatePropagation();
+              setVisible(true);
+            }}
+          >
             <span className="fa fa-bars"></span>
           </a>
         </div>
       </header>
-      <nav id="navPanel" className={visible && 'visible'}>
+      <nav
+        id="navPanel"
+        className={visible && 'visible'}
+        onClick={(e) => e.nativeEvent.stopImmediatePropagation()}
+      >
         {config.map(({ href, child }, index) => (
           <a key={index} href={href}>
             {child}
           </a>
         ))}
-        <a className="close" />
+        <a>
+          <Dropdown
+            value={lang}
+            options={options}
+            onChange={(item) => toogleLang(item.value)}
+          />
+        </a>
+        <a className="close" onClick={() => setVisible(false)} />
       </nav>
+      <style jsx global>{`
+        .Dropdown-control {
+          border: none;
+          background-color: transparent;
+          padding-right: 30px;
+        }
+        .Dropdown-placeholder {
+          color: #fff;
+          line-height: 12px;
+        }
+        .Dropdown-arrow {
+          border-color: #fff transparent transparent;
+        }
+        .Dropdown-option {
+          line-height: 12px;
+        }
+      `}</style>
       {/* header */}
       <style jsx>{`
         #header {
@@ -121,6 +164,7 @@ const Header = ({ subpage = false }) => {
           color: inherit;
           text-decoration: none;
           font-size: 0.8em;
+          vertical-align: middle;
         }
 
         #header a:hover {

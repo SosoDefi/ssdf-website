@@ -1,14 +1,15 @@
 import React from 'react';
 
+import FormatMessage from '../../components/FormatMessage';
+
 export default function Banner() {
   return (
     <section id="banner">
-      <h1>Welcome to SosoDefi</h1>
+      <h1>
+        <FormatMessage id="home.title" />
+      </h1>
       <p>
-        SOSODeFi is a one-stop service platform that provides users with simpler
-        and faster operation of investment and financial search. The platform
-        has functions such as mortgage, lending, casting, oracle options, and
-        search.
+        <FormatMessage id="home.intro" />
       </p>
       <style jsx>{`
         #banner {

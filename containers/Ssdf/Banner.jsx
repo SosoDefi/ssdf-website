@@ -1,11 +1,15 @@
 import React from 'react';
 
+import FormatMessage from '../../components/FormatMessage';
+
 export default function Banner() {
   return (
     <section id="banner">
-      <h1>SSDF</h1>
+      <h1>
+        <FormatMessage id="ssdf.title" />
+      </h1>
       <p>
-        SSDF是SOSODEFI平台的通证，平台通过SSDF实现defi资产的流通和使之发生经济作用、用户通过SSDF实现defi资产的抵押借贷理财等功能，同时SSDF也将作为权益类通证带来极高的价值。
+        <FormatMessage id="ssdf.intro" />
       </p>
       <style jsx>{`
         #banner {
