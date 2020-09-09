@@ -57,9 +57,9 @@ export default {
         desc: 'Total supply：10亿',
         content: [
           '10% used for sales',
-          '65% given to miners',
-          '15% given to technical communities',
-          '10% given to sDAO organizations',
+          '90%used for miner, 72% given to miners',
+          '90%used for miner, 17% given to technical communities',
+          '90%used for miner, 10% given to sDAO organizations, 1% given to foundation',
         ],
       },
       {
