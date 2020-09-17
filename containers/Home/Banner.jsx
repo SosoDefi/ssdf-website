@@ -13,7 +13,7 @@ export default function Banner() {
       </p>
       <style jsx>{`
         #banner {
-          padding: 12em 0 10em 0;
+          padding: 12em 3em 10em 3em;
           background-image: url('/images/banner.jpg');
           background-size: cover;
           background-position: top;
@@ -47,7 +47,7 @@ export default function Banner() {
 
         @media screen and (max-width: 1280px) {
           #banner {
-            padding: 10em 2em 8em 2em;
+            padding: 10em 2.5em 8em 2.5em;
           }
         }
 
@@ -59,7 +59,7 @@ export default function Banner() {
 
         @media screen and (max-width: 736px) {
           #banner {
-            padding: 8em 1.5em 6em 1.5em;
+            padding: 8em 2em 6em 2em;
           }
 
           #banner h1 {
@@ -73,7 +73,7 @@ export default function Banner() {
 
         @media screen and (max-width: 480px) {
           #banner {
-            padding: 6em 1.5em 4em 1.5em;
+            padding: 6em 2em 4em 2em;
           }
         }
       `}</style>
